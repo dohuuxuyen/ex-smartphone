@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ex-smartphone/static/css/main.199a0868.css",
+    "main.js": "/ex-smartphone/static/js/main.75b35295.js",
+    "index.html": "/ex-smartphone/index.html",
+    "main.199a0868.css.map": "/ex-smartphone/static/css/main.199a0868.css.map",
+    "main.75b35295.js.map": "/ex-smartphone/static/js/main.75b35295.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.199a0868.css",
+    "static/js/main.75b35295.js"
+  ]
+}
