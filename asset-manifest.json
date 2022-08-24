@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ex-smartphone/static/css/main.199a0868.css",
-    "main.js": "/ex-smartphone/static/js/main.0eebf838.js",
+    "main.js": "/ex-smartphone/static/js/main.f8e3e4aa.js",
     "index.html": "/ex-smartphone/index.html",
     "main.199a0868.css.map": "/ex-smartphone/static/css/main.199a0868.css.map",
-    "main.0eebf838.js.map": "/ex-smartphone/static/js/main.0eebf838.js.map"
+    "main.f8e3e4aa.js.map": "/ex-smartphone/static/js/main.f8e3e4aa.js.map"
   },
   "entrypoints": [
     "static/css/main.199a0868.css",
-    "static/js/main.0eebf838.js"
+    "static/js/main.f8e3e4aa.js"
   ]
 }
