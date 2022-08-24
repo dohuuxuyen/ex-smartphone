@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+    @apply opacity-100 font-bold
+}
+
+.active-img {
+    @apply  bg-red-500 
+}

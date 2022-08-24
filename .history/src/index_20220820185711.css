@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+    @apply opacity-100 font-bold
+}
+
+.active-size {
+    @apply bg-[#F7FAF9] text-red-500
+}
+
+.active-color {
+    @apply border-red-500 text-[50px]
+}
+
+.active-brand {
+    @apply border-red-500
+}
