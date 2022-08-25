@@ -12,17 +12,15 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkPhone, setCheckPhone] = useState(false);
   const [checkAddress, setCheckAddress] = useState(false);
+  const [currentRadioValue, setCurrentRadioValue] = useState("radio-3");
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [address, setAddress] = useState();
-  const [currentRadioValue, setCurrentRadioValue] = useState("radio-3");
   const state = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
   var total = 0;
-  var totalQty = 0;
-  var clearCartItem;
-  var ship = 99999;
+  var clearCartItem = 0;
 
   const handleRadioChange = (e) => {
     setCurrentRadioValue(e.target.value);
@@ -81,7 +79,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
     <>
       <div className="w-[100%] max-w-[1200px] mx-auto mt-[70px] mb-10 sm:px-2">
         <div className="bg-black text-white flex items-center justify-center h-8 sm:h-6 sm:text-[14px]">
-          Miễn phí ship với đơn hàng {">"} 2 sản phẩm
+          Uư đãi giảm 10% khi thanh toán trả trước
         </div>
         <div className="mt-[30px] w-[100%] flex justify-between">
           <form className="w-[100%] flex justify-between sm:flex-col">
@@ -200,31 +198,30 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
               <div className="w-[100%] p-2 max-h-[520px] overflow-y-scroll  border-b-[1px]">
                 {state.map((cartItem) => {
                   total += cartItem.qty * cartItem.sizes[sizePrice].price;
-                  totalQty += cartItem.qty;
                   clearCartItem = cartItem;
                   return (
                     <div className="flex h-[100px] mb-1">
                       <div
                         key={cartItem.id}
-                        className="h-[100px] border mb-2 flex items-center py-3 rounded-md sm:w-[100%]"
+                        className="h-[120px] border mb-2 flex items-center py-3 rounded-md sm:w-[100%]"
                       >
                         <img
-                          className="h-[100%] w-[120px] object-contain mr-1 sm:w-[100px] "
+                          className="h-[100px] w-[120px] object-contain mr-1 sm:w-[100px] "
                           src={cartItem.src[tabIndex]}
                           alt=""
                         />
 
                         <div className="flex w-[100%] items-center sm:flex-col">
-                          <div className="w-[200px] font-medium sm:w-[100%] text-[14px]">
+                          <div className="w-[200px] font-medium sm:w-[100%]">
                             {cartItem.title} - {cartItem.colors[colorsOther]} -{" "}
                             {cartItem.sizes[sizePrice].size}
                           </div>
 
-                          <div className="mx-5 w-[120px] text-center font-medium sm:my-1 sm:mx-0 sm:w-[100%] sm:text-left text-[14px]">
+                          <div className="mx-5 w-[120px] text-center font-medium sm:my-1 sm:mx-0 sm:w-[100%] sm:text-left ">
                             {cartItem.sizes[sizePrice].price} đ
                           </div>
 
-                          <div className="flex w-[70px] border items-center  justify-center text-[14px] border-[#adadad] rounded-md mr-2 sm:ml-[-175px]">
+                          <div className="flex w-[70px] border items-center  justify-center text-[16px] border-[#adadad] rounded-md mr-2 sm:ml-[-175px]">
                             <input
                               type="text"
                               className="w-[70%] outline-none text-center "
@@ -244,19 +241,11 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
                 </div>
                 <div className=" flex items-center justify-between mt-3 ">
                   <h2>Phí ship:</h2>
-                  {totalQty > 2 || state.length > 2 ? (
-                    <p>{0} VNĐ</p>
-                  ) : (
-                    <p>{ship} VNĐ</p>
-                  )}
+                  <p>20,000 VND</p>
                 </div>
                 <div className=" font-bold flex items-center justify-between my-3 ">
                   <h2>Thành tiền:</h2>
-                  {totalQty > 2 || state.length > 2 ? (
-                    <p className="text-red-500">{total} VND</p>
-                  ) : (
-                    <p className="text-red-500">{total + ship} VND</p>
-                  )}
+                  <p>{total + 20000} VND</p>
                 </div>
                 {checkName && checkEmail && checkPhone && checkAddress ? (
                   <NavLink

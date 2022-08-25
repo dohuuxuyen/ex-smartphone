@@ -22,7 +22,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
   var total = 0;
   var totalQty = 0;
   var clearCartItem;
-  var ship = 99999;
+  var ship = 20000;
 
   const handleRadioChange = (e) => {
     setCurrentRadioValue(e.target.value);

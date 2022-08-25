@@ -32,7 +32,7 @@ const Cart = ({ sizePrice, colorsOther, tabIndex }) => {
     <>
       <div className="w-[100%]  max-w-[1200px] mx-auto mt-[70px] mb-10 sm:px-2">
         <div className="bg-black text-white flex items-center justify-center h-8 sm:h-6 sm:text-[14px]">
-          Miễn phí ship với đơn hàng {">"} 2 sản phẩm
+          Uư đãi giảm 10% khi thanh toán trả trước
         </div>
 
         <div className="mt-[30px] flex sm:flex-col-reverse">

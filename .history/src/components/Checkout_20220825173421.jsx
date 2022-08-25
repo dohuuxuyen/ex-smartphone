@@ -21,8 +21,8 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
   const dispatch = useDispatch();
   var total = 0;
   var totalQty = 0;
-  var clearCartItem;
-  var ship = 99999;
+  var clearCartItem = 0;
+  var ship = 20000;
 
   const handleRadioChange = (e) => {
     setCurrentRadioValue(e.target.value);
@@ -81,7 +81,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
     <>
       <div className="w-[100%] max-w-[1200px] mx-auto mt-[70px] mb-10 sm:px-2">
         <div className="bg-black text-white flex items-center justify-center h-8 sm:h-6 sm:text-[14px]">
-          Miễn phí ship với đơn hàng {">"} 2 sản phẩm
+          Uư đãi giảm 10% khi thanh toán trả trước
         </div>
         <div className="mt-[30px] w-[100%] flex justify-between">
           <form className="w-[100%] flex justify-between sm:flex-col">
@@ -200,7 +200,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
               <div className="w-[100%] p-2 max-h-[520px] overflow-y-scroll  border-b-[1px]">
                 {state.map((cartItem) => {
                   total += cartItem.qty * cartItem.sizes[sizePrice].price;
-                  totalQty += cartItem.qty;
+                  totalQty = cartItem.qty;
                   clearCartItem = cartItem;
                   return (
                     <div className="flex h-[100px] mb-1">
@@ -244,7 +244,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
                 </div>
                 <div className=" flex items-center justify-between mt-3 ">
                   <h2>Phí ship:</h2>
-                  {totalQty > 2 || state.length > 2 ? (
+                  {totalQty >= 2 || state.length >= 2 ? (
                     <p>{0} VNĐ</p>
                   ) : (
                     <p>{ship} VNĐ</p>
@@ -252,7 +252,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
                 </div>
                 <div className=" font-bold flex items-center justify-between my-3 ">
                   <h2>Thành tiền:</h2>
-                  {totalQty > 2 || state.length > 2 ? (
+                  {totalQty >= 2 || state.length >= 2 ? (
                     <p className="text-red-500">{total} VND</p>
                   ) : (
                     <p className="text-red-500">{total + ship} VND</p>

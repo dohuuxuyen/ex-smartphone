@@ -21,7 +21,8 @@ const Home = () => {
     <>
       <div className="w-[100%] max-w-[1200px] mx-auto mt-[70px] sm:px-2">
         <div className="bg-black text-white flex items-center justify-center h-8 sm:h-6 sm:text-[14px]">
-          Miễn phí ship với đơn hàng {">"} 2 sản phẩm
+          Uư đãi giảm 10% khi thanh toán trả trước | Miễn phí ship với đơn hàng{" "}
+          {">"} 2 sản phẩm
         </div>
         <div className=" flex items-center justify-between  mx-auto overflow-hidden">
           <div className="h-[calc(100vh-102px)] w-[400vw]  flex  sm:h-[100%]">

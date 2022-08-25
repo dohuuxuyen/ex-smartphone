@@ -21,8 +21,8 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
   const dispatch = useDispatch();
   var total = 0;
   var totalQty = 0;
-  var clearCartItem;
-  var ship = 99999;
+  var clearCartItem = 0;
+  var ship = 20000;
 
   const handleRadioChange = (e) => {
     setCurrentRadioValue(e.target.value);
@@ -200,7 +200,7 @@ const Checkout = ({ colorsOther, sizePrice, tabIndex }) => {
               <div className="w-[100%] p-2 max-h-[520px] overflow-y-scroll  border-b-[1px]">
                 {state.map((cartItem) => {
                   total += cartItem.qty * cartItem.sizes[sizePrice].price;
-                  totalQty += cartItem.qty;
+                  totalQty = cartItem.qty;
                   clearCartItem = cartItem;
                   return (
                     <div className="flex h-[100px] mb-1">
