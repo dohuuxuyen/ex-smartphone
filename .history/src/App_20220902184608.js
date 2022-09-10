@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import ProductDetail from "./components/ProductDetail";
 import Products from "./components/Products";
 import Success from "./components/Success";
+import data from "./data";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -47,7 +48,7 @@ function App() {
               <Logout activeUser={activeUser} setActiveUser={setActiveUser} />
             }
           />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" />
           <Route
             path="/products/:id"
             element={

@@ -5,6 +5,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { addCartItem, deleteCartItem } from "../redux/actions/actions";
 import data from "../data";
 import Footer from "./Footer";
+import { useEffect } from "react";
 
 const ProductDetail = ({
   sizePrice,

@@ -5,6 +5,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { addCartItem, deleteCartItem } from "../redux/actions/actions";
 import data from "../data";
 import Footer from "./Footer";
+import { useEffect } from "react";
 
 const ProductDetail = ({
   sizePrice,
@@ -19,7 +20,9 @@ const ProductDetail = ({
 
   const { id } = useParams();
   const productDetail = data.filter((x) => x.id === Number(id));
-  const product = productDetail[0];
+  const product = productDetail[id];
+
+  useEffect(() => {}, [id]);
 
   const dispatch = useDispatch();
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
@@ -16,9 +16,11 @@ const ProductDetail = ({
   activeUser,
 }) => {
   const [isProduct, setIsProduct] = useState("");
+  // const [product, setProduct] = useState([]);
+  // console.log(product);
 
-  const { id } = useParams();
-  const productDetail = data.filter((x) => x.id === Number(id));
+  const id = useParams();
+  const productDetail = data.filter((x) => x.id == id.id);
   const product = productDetail[0];
 
   const dispatch = useDispatch();

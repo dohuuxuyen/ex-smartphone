@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import data from "../data";
@@ -8,26 +8,25 @@ const Products = () => {
   const [isCheckbox, setIsCheckbox] = useState(false);
   const [filter, setFilter] = useState(data);
 
-  useEffect(() => {
-    let componentMounted = true;
-    const getProducts = async () => {
-      const response = await data;
-      if (componentMounted) {
-        setFilter(await response);
-      }
-      return () => {
-        componentMounted = false;
-      };
-    };
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   let componentMounted = true;
+  //   const getProduct = async () => {
+  //     if (componentMounted) {
+  //       setFilter(data);
+  //     }
+  //     return () => {
+  //       let componentMounted = false;
+  //     };
+  //   };
+  //   getProduct();
+  // });
 
   const handleBrandChange = (e) => {
     setIsCheckbox(e.target.value);
   };
 
   const FilterProducts = (e) => {
-    const updateListFilter = data.filter((x) => x.category === e);
+    const updateListFilter = filter.filter((x) => x.category === e);
     setFilter(updateListFilter);
   };
 

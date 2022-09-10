@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Products = () => {
   const [isCheckbox, setIsCheckbox] = useState(false);
-  const [filter, setFilter] = useState(data);
+  const [filter, setFilter] = useState();
 
   useEffect(() => {
     let componentMounted = true;

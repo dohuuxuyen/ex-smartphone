@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
@@ -16,12 +16,21 @@ const ProductDetail = ({
   activeUser,
 }) => {
   const [isProduct, setIsProduct] = useState("");
+  const [product, setProduct] = useState([productDetail]);
 
-  const { id } = useParams();
-  const productDetail = data.filter((x) => x.id === Number(id));
-  const product = productDetail[0];
+  const productID = useParams();
+  const productDetail = data.filter((x) => x.id == productID.id);
+  // const product = productDetail[0];
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getProductDetail = async () => {
+      const productDetail = await data.filter((x) => x.id == productID.id);
+      setProduct(await productDetail[0]);
+    };
+    getProductDetail();
+  }, []);
 
   const handleTabImg = (index) => {
     setTabIndex(index);

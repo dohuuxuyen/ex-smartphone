@@ -61,7 +61,7 @@ const Products = () => {
                 >
                   <input
                     className="mr-2"
-                    type="radio"
+                    type="checkbox"
                     name="radio-1"
                     onChange={handleBrandChange}
                     value="radio-1"
@@ -81,7 +81,7 @@ const Products = () => {
                 >
                   <input
                     className="mr-2"
-                    type="radio"
+                    type="checkbox"
                     name="radio-2"
                     onChange={handleBrandChange}
                     value="radio-2"
@@ -101,7 +101,7 @@ const Products = () => {
                 >
                   <input
                     className="mr-2"
-                    type="radio"
+                    type="checkbox"
                     name="radio-3"
                     onChange={handleBrandChange}
                     value="radio-3"

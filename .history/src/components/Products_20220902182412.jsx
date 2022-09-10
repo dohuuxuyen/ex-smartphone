@@ -4,23 +4,8 @@ import { NavLink } from "react-router-dom";
 import data from "../data";
 import Footer from "./Footer";
 
-const Products = () => {
+const Products = ({ filter, setFilter }) => {
   const [isCheckbox, setIsCheckbox] = useState(false);
-  const [filter, setFilter] = useState(data);
-
-  useEffect(() => {
-    let componentMounted = true;
-    const getProducts = async () => {
-      const response = await data;
-      if (componentMounted) {
-        setFilter(await response);
-      }
-      return () => {
-        componentMounted = false;
-      };
-    };
-    getProducts();
-  }, []);
 
   const handleBrandChange = (e) => {
     setIsCheckbox(e.target.value);

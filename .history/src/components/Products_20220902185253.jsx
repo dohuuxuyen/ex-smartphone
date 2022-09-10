@@ -6,21 +6,21 @@ import Footer from "./Footer";
 
 const Products = () => {
   const [isCheckbox, setIsCheckbox] = useState(false);
-  const [filter, setFilter] = useState(data);
+  const [filter, setFilter] = useState();
 
   useEffect(() => {
     let componentMounted = true;
-    const getProducts = async () => {
-      const response = await data;
+    const getProduct = async () => {
+      const response = await fetch(data);
       if (componentMounted) {
-        setFilter(await response);
+        setFilter(await response.data);
       }
       return () => {
-        componentMounted = false;
+        let componentMounted = false;
       };
     };
-    getProducts();
-  }, []);
+    getProduct();
+  });
 
   const handleBrandChange = (e) => {
     setIsCheckbox(e.target.value);

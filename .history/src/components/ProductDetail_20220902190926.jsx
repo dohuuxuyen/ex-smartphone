@@ -16,10 +16,11 @@ const ProductDetail = ({
   activeUser,
 }) => {
   const [isProduct, setIsProduct] = useState("");
-
   const { id } = useParams();
-  const productDetail = data.filter((x) => x.id === Number(id));
-  const product = productDetail[0];
+
+  // const productID = useParams();
+  // const productDetail = data.filter((x) => x.id == productID.id);
+  // const product = productDetail[0];
 
   const dispatch = useDispatch();
 

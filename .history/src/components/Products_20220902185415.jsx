@@ -10,17 +10,16 @@ const Products = () => {
 
   useEffect(() => {
     let componentMounted = true;
-    const getProducts = async () => {
-      const response = await data;
+    const getProduct = async () => {
       if (componentMounted) {
-        setFilter(await response);
+        setFilter(data);
       }
       return () => {
-        componentMounted = false;
+        let componentMounted = false;
       };
     };
-    getProducts();
-  }, []);
+    getProduct();
+  });
 
   const handleBrandChange = (e) => {
     setIsCheckbox(e.target.value);

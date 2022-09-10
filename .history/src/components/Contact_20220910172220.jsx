@@ -4,23 +4,10 @@ import Footer from "./Footer";
 const Contact = () => {
   const [message, setMessage] = useState(false);
   const [input, setInput] = useState("");
-  const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setMessage(true);
-    setInput("");
-    setContent("");
-  };
-
-  const handleInput = (e) => {
-    setInput(e.target.value);
-    setMessage(false);
-  };
-
-  const handleContent = (e) => {
-    setContent(e.target.value);
-    setMessage(false);
   };
   return (
     <>
@@ -39,14 +26,12 @@ const Contact = () => {
               type="email"
               placeholder="Email"
               required
-              onChange={(e) => handleInput(e)}
+              onChange={(e) => setInput(e.target.value)}
             />
             <textarea
-              value={content}
               className="w-[100%] border py-1 px-2 h-[200px] outline-none border-[#ccc] bg-[#f7faf9]"
               placeholder="Nội dung"
               required
-              onChange={(e) => handleContent(e)}
             ></textarea>
             <button
               className="border mt-5 mb-2 outline-none border-[#ccc] py-2 font-medium"

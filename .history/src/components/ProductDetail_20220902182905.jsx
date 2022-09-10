@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { addCartItem, deleteCartItem } from "../redux/actions/actions";
-import data from "../data";
 import Footer from "./Footer";
 
 const ProductDetail = ({
@@ -14,14 +13,17 @@ const ProductDetail = ({
   tabIndex,
   setTabIndex,
   activeUser,
+  filter,
 }) => {
   const [isProduct, setIsProduct] = useState("");
-
-  const { id } = useParams();
-  const productDetail = data.filter((x) => x.id === Number(id));
-  const product = productDetail[0];
+  const productID = useParams();
 
   const dispatch = useDispatch();
+
+  const productDetail = filter.filter((x) => x.id == productID.id);
+  useEffect(() => {
+    const product = productDetail[0];
+  }, []);
 
   const handleTabImg = (index) => {
     setTabIndex(index);
